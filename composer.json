@@ -1,0 +1,13 @@
+{
+    "name": "oldshiji/siwo-framework",
+    "description": "this is siwo-kernel library of siwo base on swoole 4.2.x",
+    "type": "library",
+    "license": "MIT",
+    "authors": [
+        {
+            "name": "oldshiji",
+            "email": "1655664358@qq.com"
+        }
+    ],
+    "require": {}
+}
