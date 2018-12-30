@@ -9,5 +9,20 @@
             "email": "1655664358@qq.com"
         }
     ],
-    "require": {}
+    "autoload":{
+        "psr-4":{
+            "Siwo\\":"src/"
+        },
+        "files":[
+            "src/Foundation/Helper.php"
+        ]
+    },
+    "require": {
+        "php": ">=7.1.0",
+        "ext-swoole": ">=4.2.6",
+        "jakub-onderka/php-console-color":"dev-master",
+        "wp-cli/php-cli-tools":"dev-master"
+    }
 }
+
+

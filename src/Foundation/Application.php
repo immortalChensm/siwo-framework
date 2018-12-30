@@ -18,7 +18,7 @@ class Application implements \ArrayAccess,\IteratorAggregate
     public static $instance;
 
     protected $base_path;
-    const VERSION = 'v0.2-alpha';
+    const VERSION = 'v0.4-alpha';
 
     protected $providers = [];
     protected $instances = [];
@@ -67,7 +67,12 @@ class Application implements \ArrayAccess,\IteratorAggregate
 
     private function loadConfig()
     {
-        $this->instances['config'] = new Repository(require_once $this->getConfigPath()."/app.php");
+        if (file_exists($this->getConfigPath()."/app.php")){
+            $this->instances['config'] = new Repository(require_once $this->getConfigPath()."/app.php");
+        }else{
+            throw new \RuntimeException("please set config param");
+        }
+
     }
     private function registerCoreClass()
     {
