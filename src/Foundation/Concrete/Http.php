@@ -20,7 +20,9 @@ class Http extends \swoole_http_server
             'worker_num'=>self::$app['config']['worker_num'],
             'reactor_num'=>self::$app['config']['reactor_num'],
             'package_max_length'=>100*1024*1024,
-            'daemonize'=>app('config')['daemonize']
+            'daemonize'=>app('config')['daemonize'],
+            'document_root' => config('document_root'),
+            'enable_static_handler' => true,
         ]);
         $this->on("request",[$this,'OnRequest']);
         $this->on("start",[$this,'OnStart']);
