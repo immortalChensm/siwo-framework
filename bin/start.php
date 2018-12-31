@@ -5,6 +5,11 @@
  * Date: 2018/11/19
  * Time: 0:44
  */
-define('SIWO_PATH',dirname(__FILE__)."/");
-require SIWO_PATH.'autoload.php';
+define('SIWO_PATH',realpath(getcwd()));
+$autoLoadFile = SIWO_PATH.'vendor/autoload.php';
+if (file_exists($autoLoadFile)){
+    require $autoLoadFile;
+}else{
+    die("require composer autoload fail\n");
+}
 (new \Siwo\Foundation\Application())->run();
