@@ -5,5 +5,6 @@
  * Date: 2018/11/19
  * Time: 0:44
  */
-require '../../../autoload.php';
+define('SIWO_PATH',dirname(__FILE__)."/");
+require SIWO_PATH.'autoload.php';
 (new \Siwo\Foundation\Application())->run();
