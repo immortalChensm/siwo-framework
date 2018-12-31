@@ -10,6 +10,7 @@ $autoLoadFile = SIWO_PATH.'vendor/autoload.php';
 if (file_exists($autoLoadFile)){
     require $autoLoadFile;
 }else{
+    echo $autoLoadFile;
     die("require composer autoload fail\n");
 }
 (new \Siwo\Foundation\Application())->run();
