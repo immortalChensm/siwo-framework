@@ -24,7 +24,7 @@ class MysqlPool
      */
     function __construct($size = 10)
     {
-        $this->pool = new Swoole\Coroutine\Channel($size);
+        $this->pool = new \Swoole\Coroutine\Channel($size);
         for ($i = 0; $i < $size; $i++)
         {
             $db = new Query();
