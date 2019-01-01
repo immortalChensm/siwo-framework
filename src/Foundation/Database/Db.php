@@ -22,4 +22,9 @@ class Db
             return $query->{$name}(...$arguments);
         }
     }
+
+    public static function freeObj($db)
+    {
+        return MysqlPool::getInstance()->put($db);
+    }
 }
