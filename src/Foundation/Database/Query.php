@@ -12,7 +12,7 @@ use Swoole\Coroutine\MySQL;
 
 class Query
 {
-    use Singleton;
+    //use Singleton;
     public static $instance;
     protected $db = null;
     protected $table;
@@ -23,7 +23,7 @@ class Query
     protected $sql;
     protected $expressionsConvert = ['eq'=>'=','neq'=>'<>','gt'=>'>','lt'=>'<','elt'=>'<=','egt'=>'>=','like'=>'LIKE','not like'=>'NOT LIKE ','not between'=>'NOT BETWEEN ','between'=>'BETWEEN','in'=>'IN','not in'=>'NOT IN'];
 
-    private function __construct()
+    public function __construct()
     {
         $this->db = new MySQL();
         $this->db->connect([
@@ -644,20 +644,20 @@ class Query
 
     public function execute($sql)
     {
-        $result = $this->db->query($this->sql);
-
-        if ($this->db->errno == 0){
-            $this->table = '';
-            $this->fields= '';
-            $this->where = '';
-            $this->order = '';
-            $this->group ='';
-            $this->sql   = '';
-            return $result;
-        }else{
-
-            self::$instance = new self();
-            return $this->db->query($this->sql);
-        }
+        return $this->db->query($this->sql);
+//
+//        if ($this->db->errno == 0){
+//            $this->table = '';
+//            $this->fields= '';
+//            $this->where = '';
+//            $this->order = '';
+//            $this->group ='';
+//            $this->sql   = '';
+//            return $result;
+//        }else{
+//
+//            self::$instance = new self();
+//            return $this->db->query($this->sql);
+//        }
     }
 }

@@ -8,15 +8,16 @@
 namespace Siwo\Foundation\Database;
 class Db
 {
+    public static $pool;
     public static function getInstance()
     {
-        return Query::getInstance();
+        return MysqlPool::getInstance()->get();
     }
 
     public static function __callStatic($name, $arguments)
     {
         // TODO: Implement __callStatic() method.
-        $query = Query::getInstance();
+        $query = MysqlPool::getInstance()->get();
         if (method_exists($query,$name)){
             return $query->{$name}(...$arguments);
         }
