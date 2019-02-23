@@ -26,13 +26,15 @@ class Query
     public function __construct()
     {
         $this->db = new MySQL();
-        $this->db->connect([
+        if(!$this->db->connect([
             'host' => config('db')['host'],
             'port' => config('db')['port'],
             'user' => config('db')['user'],
             'password' => config('db')['password'],
             'database' => config('db')['database'],
-        ]);
+        ])){
+            throw new \RuntimeException("数据库连接失败！");
+        }
     }
 
     public function query($sql)

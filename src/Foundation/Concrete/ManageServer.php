@@ -48,7 +48,7 @@ class ManageServer
 
             $pid_file_content = file_get_contents($this->app['config']['pid_file']);
             if (in_array($pid_file_content,$process_list)){
-                \swoole_process::kill(file_get_contents($this->app['config']['pid_file']),SIGTERM);
+                print_r(\swoole_process::kill(file_get_contents($this->app['config']['pid_file']),SIGTERM));
             }
         });
     }

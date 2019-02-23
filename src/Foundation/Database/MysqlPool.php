@@ -22,7 +22,7 @@ class MysqlPool
      * RedisPool constructor.
      * @param int $size 连接池的尺寸
      */
-    function __construct($size = 10)
+    function __construct($size = 100)
     {
         $this->pool = new \Swoole\Coroutine\Channel($size);
         for ($i = 0; $i < $size; $i++)
