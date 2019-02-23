@@ -33,7 +33,15 @@ class Query
             'password' => config('db')['password'],
             'database' => config('db')['database'],
         ])){
-            throw new \RuntimeException("数据库连接失败！");
+            //throw new \RuntimeException("数据库连接失败！");
+            //连接失败 再次连接
+            $this->db->connect([
+                'host' => config('db')['host'],
+                'port' => config('db')['port'],
+                'user' => config('db')['user'],
+                'password' => config('db')['password'],
+                'database' => config('db')['database'],
+            ]);
         }
     }
 
